@@ -45,3 +45,13 @@ def get_post(post_id:str): #recibo un parametro por la funcion q va a ser un str
         if post["id"] == post_id:
             return post
     raise HTTPException(status_code=404, detail="Post Not Found")
+
+@app.delete("/posts/{post_id}")
+def delete_post(post_id: str):
+    for index, post in enumerate(posts):
+        #print(post)
+        #print(index)
+        if post["id"] == post_id:
+            posts.pop(index)
+            return{"message": "Post has been deleted successfully"}
+    raise HTTPException(status_code=404, detail="Post Not Found")
