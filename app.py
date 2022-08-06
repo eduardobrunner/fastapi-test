@@ -36,4 +36,12 @@ def save_post(post: Post):
 
     post.id = str(uuid4()) #genera string random y asigna ese a la prop id de la publicacion
     posts.append(post.dict()) #luego va a ser guardada dentro de la lista
-    return "received"
+    return posts[-1] #retorno el ultimo elemento de la lista
+
+@app.get('/posts/{post_id}')
+def get_post(post_id:str): #recibo un parametro por la funcion q va a ser un str
+    #print (post_id) muestra por consola lo que posteo en localhost:8000/posts/(1, mama, o lo que sea)
+    for post in posts:
+        if post["id"] == post_id:
+            return post
+    return "no se encontro"
