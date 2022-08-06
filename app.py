@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel #para describir un modelo base
 from typing import Text, Optional #typing viene en fastapi para textos largos
 #Optional es otro objeto que podemos recurrir para que no todos los atributos de la clase sean obligatorios
@@ -44,4 +44,4 @@ def get_post(post_id:str): #recibo un parametro por la funcion q va a ser un str
     for post in posts:
         if post["id"] == post_id:
             return post
-    return "no se encontro"
+    raise HTTPException(status_code=404, detail="Post Not Found")
