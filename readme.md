@@ -11,8 +11,8 @@ En este caso unicamente se ha trabajado de forma local a manera de aprender sobr
 
 Se ha empleado el entorno virtual de Anaconda de la siguiente manera:
 
-En el terminal de anaconda tipear:
-cd Desktop
-cd fastapi-crud-apirest
-conda env list
-conda activate fastapi-crud-resapi
+- En el terminal de anaconda tipear:
+- cd Desktop
+- cd fastapi-crud-restapi
+- conda env list
+- conda activate fastapi-crud-restapi
